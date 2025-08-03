@@ -1,181 +1,147 @@
-# 🎯 Juego de Trivia Mitológica
+**-ESPAÑOL-**
 
-Un juego de trivia interactivo en Python que combina conocimientos de mitología griega, egipcia y hebrea con un sistema de buffeos, objetos especiales y minijuegos.
+📜 **Juego de Trivia Mitológica**
+Este proyecto simula un juego de trivia interactivo con temáticas de mitología griega, egipcia y hebrea. Incluye un sistema de buffs, objetos especiales, minijuegos y estadísticas avanzadas para los jugadores.
 
-## 🎮 Características Principales
+🛠️ **Tecnologías Utilizadas**
 
-### 🏆 Sistema de Juego
-- **3 Niveles de dificultad** con preguntas de diferentes categorías
-- **Sistema de racha** que otorga bonificaciones por respuestas consecutivas correctas
-- **Objetos especiales** desbloqueables con efectos únicos
-- **Sistema de reintentos** basado en rendimiento
-- **Estadísticas detalladas** y ranking de jugadores
+* Python 3
+* Estructuras de datos básicas (listas, bucles, condicionales)
+* Programación modular
+* Uso de archivos CSV y JSON para persistencia
+* Algoritmos personalizados (ordenamiento, recorridos en matriz)
+* Separación en módulos (import, organización en archivos `.py`)
 
-### ⚔️ Objetos Especiales de la Esfinge
-Los jugadores pueden obtener objetos excepcionales al lograr 8+ respuestas correctas en una partida de 10 preguntas:
-
-- **🗡️ Espada**: +2 puntos extra por respuesta correcta + reintento especial
-- **🛡️ Armadura**: Protección automática contra una respuesta incorrecta
-- **🍖 Raciones**: Recupera 3 puntos de vida al fallar una pregunta
-- **💰 Bolsa de Monedas**: Duplica los puntos de la última pregunta correcta
-
-### 🎲 Minijuego: Guardianes de Piedra
-Un juego de estrategia donde debes navegar por una matriz desde (0,0) hasta la esquina inferior derecha, moviéndote solo a casillas con valores mayores.
-
-## 📁 Estructura del Proyecto
+📁 **Estructura de Carpetas**
 
 ```
-├── Main.py                      # Punto de entrada principal
-├── buffeos.py                   # Sistema de objetos especiales y buffeos
-├── generales.py                 # Funciones utilitarias generales
-├── manejo_de_usuario.py         # Gestión de usuarios y estadísticas
-├── Minijuego.py                 # Juego de Guardianes de Piedra
-├── preguntas.py                 # Carga y manejo de preguntas
-├── prints_de_juego.py           # Funciones de visualización
-├── procesos_recopilatorios.py   # Lógica principal de partidas
-├── puntaje.py                   # Sistema de puntuación
-├── validaciones_y_prints.py    # Validaciones y procesamiento de respuestas
-├── verificacion_archivos.py    # Manejo de archivos JSON/CSV
-├── preguntas.csv               # Base de datos de preguntas
-├── Usuarios.json               # Estadísticas de usuarios
-└── EstadoBuff.json             # Estado de objetos especiales
+├── Main.py                    # Menú principal del programa (interfaz de usuario)
+├── buffeos.py                 # Sistema de objetos especiales y buffs
+├── generales.py               # Funciones utilitarias generales
+├── manejo_de_usuario.py       # Gestión de usuarios y estadísticas
+├── Minijuego.py               # Minijuego "Guardianes de Piedra"
+├── preguntas.py               # Manejo y carga de preguntas desde CSV
+├── prints_de_juego.py         # Visualización e interfaces gráficas por consola
+├── procesos_recopilatorios.py # Lógica principal de partidas
+├── puntaje.py                 # Sistema de puntuación y rachas
+├── validaciones_y_prints.py   # Validaciones y procesamiento de respuestas
+├── verificacion_archivos.py   # Gestión de archivos JSON y CSV
+├── preguntas.csv              # Base de datos de preguntas
+├── Usuarios.json              # Registro de estadísticas por jugador
+└── EstadoBuff.json            # Estado de objetos especiales por usuario
 ```
 
-## 🚀 Instalación y Uso
+📌 **Ejercicios Desarrollados**
 
-### Prerrequisitos
-- Python 3.x
-- No requiere dependencias externas
+* Registro de usuarios y control de intentos por partida
+* Sistema de trivia con 3 niveles de dificultad
+* Bonificaciones por racha de respuestas correctas
+* Desbloqueo de objetos especiales (espada, armadura, raciones, bolsa de monedas)
+* Submenú con estadísticas detalladas del jugador
+* Minijuego con lógica recursiva: Guardianes de Piedra
+* Rankings globales y almacenamiento de partidas
+* Validación de respuestas, puntuación y reintentos estratégicos
 
-### Ejecución
-```bash
-git clone [tu-repositorio]
-cd [nombre-del-proyecto]
-python Main.py
+🧠 **Habilidades Desarrolladas**
+
+* Pensamiento lógico y estructuras de control avanzadas
+* Modularización de código y separación de responsabilidades
+* Manipulación de archivos `.json` y `.csv`
+* Algoritmos de recorrido en matrices y ordenamiento personalizado
+* Validación exhaustiva de entrada del usuario
+* Persistencia de datos y análisis estadístico
+* Diseño de minijuegos con restricciones lógicas (valores crecientes en matriz)
+
+▶️ **¿Cómo Ejecutarlo?**
+
+1. Asegurate de tener **Python 3.10 o superior** instalado.
+2. Descargá todos los archivos `.py`, `.csv` y `.json` en la misma carpeta.
+3. Abrí una terminal o consola en esa carpeta.
+4. Ejecutá el programa principal con:
+
+   ```bash
+   python Main.py
+   ```
+5. Seguí las instrucciones del menú para jugar, consultar estadísticas, revisar el ranking o acceder al minijuego.
+
+💡 **Notas**
+
+* Las preguntas se leen desde el archivo `preguntas.csv`.
+* Las estadísticas se guardan automáticamente en `Usuarios.json`.
+* Solo se desbloquean objetos si se logran **8 o más aciertos** en una partida de 10 preguntas.
+* El minijuego **Guardianes de Piedra** genera matrices con solución garantizada y permite reinicios.
+* El programa no utiliza librerías externas (todo está implementado con Python puro).
+
+**-ENGLISH-**
+
+📜 **Mythological Trivia Game**
+This project simulates an interactive trivia game focused on Greek, Egyptian, and Hebrew mythology. It includes a buff system, unlockable special items, minigames, and detailed player statistics.
+
+🛠️ **Technologies Used**
+
+* Python 3
+* Basic data structures (lists, loops, conditionals)
+* Modular programming
+* CSV and JSON file handling
+* Custom algorithms (sorting, matrix traversal)
+* Separation into modules (`import`, organized `.py` files)
+
+📁 **Folder Structure**
+
+```
+├── Main.py                    # Main menu (user interface)
+├── buffeos.py                 # Special item and buff system
+├── generales.py               # General utility functions
+├── manejo_de_usuario.py       # User management and statistics
+├── Minijuego.py               # "Stone Guardians" minigame
+├── preguntas.py               # Loading and handling trivia questions
+├── prints_de_juego.py         # Display and interface functions
+├── procesos_recopilatorios.py # Main game logic
+├── puntaje.py                 # Scoring and streak system
+├── validaciones_y_prints.py   # Input validation and response processing
+├── verificacion_archivos.py   # JSON and CSV file handling
+├── preguntas.csv              # Question database
+├── Usuarios.json              # Player statistics
+└── EstadoBuff.json            # User-specific special item tracking
 ```
 
-## 🎯 Cómo Jugar
+📌 **Implemented Features**
 
-### Menú Principal
-1. **Juego Principal**: Inicia una partida completa
-2. **Ver Estadísticas**: Muestra tu progreso personal
-3. **Ver Ranking**: Tabla de clasificación de todos los jugadores
-4. **Minijuego Extra**: Juega Guardianes de Piedra
-5. **Salir**: Termina el programa
+* User registration and session tracking
+* Trivia gameplay with 3 levels of difficulty
+* Bonus points for consecutive correct answers
+* Unlockable items (sword, armor, rations, coin bag)
+* Statistics submenu showing personal performance
+* Recursive logic minigame: *Stone Guardians*
+* Global ranking system and persistent session data
+* Validation of user input, scoring, and retry logic
 
-### Mecánicas de Juego
+🧠 **Skills Developed**
 
-#### 📈 Sistema de Puntuación
-- **Nivel 1**: 1 punto por respuesta correcta, -1 por incorrecta
-- **Nivel 2**: 2 puntos por respuesta correcta, -2 por incorrecta  
-- **Nivel 3**: 3 puntos por respuesta correcta, -3 por incorrecta
+* Logical thinking and advanced control structures
+* Modularized code and file responsibility separation
+* Manipulation of `.json` and `.csv` files
+* Custom matrix traversal and sorting algorithms
+* Strict user input validation
+* Data persistence and statistical analysis
+* Minigame design with logical constraints (only move to higher values)
 
-#### 🔥 Sistema de Racha
-- **3+ respuestas correctas**: +1 punto extra
-- **5+ respuestas correctas**: +3 puntos extra
-- **7+ respuestas correctas**: +5 puntos extra
+▶️ **How to Run It**
 
-#### 🛡️ Sistema de Reintentos
-- Disponible con racha de 2+ respuestas correctas
-- Espada otorga reintento especial independiente de la racha
-- Máximo 2 errores por partida antes del fin del juego
+1. Make sure you have **Python 3.10 or higher** installed.
+2. Download all `.py`, `.csv`, and `.json` files into the same folder.
+3. Open a terminal or command prompt in that folder.
+4. Run the main script with:
 
-## 📊 Formatos de Datos
+   ```bash
+   python Main.py
+   ```
+5. Follow the on-screen instructions to start the game, view statistics, check rankings, or access the minigame.
 
-### preguntas.csv
-```csv
-id,nivel,descripcion,dificultad,categoria,opcion_correcta,opcion1,opcion2,opcion3,opcion4
-```
+💡 **Notes**
 
-### Usuarios.json
-Almacena estadísticas detalladas incluyendo:
-- Número de intentos
-- Historial de puntajes, tiempos y aciertos
-- Porcentajes de éxito
-- Historial detallado de respuestas
-
-### EstadoBuff.json
-Gestiona el estado de objetos especiales por usuario:
-```json
-{
-  "usuario": {
-    "objeto_excepcional": "espada|armadura|raciones|bolsa_monedas"
-  }
-}
-```
-
-## 🎨 Características Técnicas
-
-### 🔧 Arquitectura Modular
-- Separación clara de responsabilidades
-- Funciones puras sin efectos secundarios
-- Manejo robusto de archivos JSON/CSV
-
-### 📝 Implementación Sin Librerías Externas
-- Implementaciones propias de funciones como `sum()`, `min()`, `max()`
-- Algoritmos de ordenamiento personalizados
-- Manejo manual de strings y listas
-
-### 🎯 Características de Código
-- Manejo de errores robusto
-- Validaciones exhaustivas de entrada
-- Persistencia de datos en archivos locales
-- Sistema de logging implícito en las estadísticas
-
-## 🎲 Minijuego: Guardianes de Piedra
-
-Un puzzle estratégico donde:
-- Comienzas en la esquina superior izquierda (0,0)
-- Objetivo: llegar a la esquina inferior derecha
-- Regla: solo puedes moverte a casillas con valores **mayores** al actual
-- Genera matrices con solución garantizada usando algoritmos recursivos
-
-### Controles
-- **1-8**: Seleccionar movimiento direccional
-- **r**: Reiniciar partida
-- **q**: Salir del minijuego
-
-## 🏆 Sistema de Progresión
-
-1. **Juega partidas** para acumular estadísticas
-2. **Mantén rachas** para obtener bonificaciones
-3. **Logra 8+ aciertos** en partidas de 10 preguntas para desbloquear objetos
-4. **Usa objetos estratégicamente** para maximizar puntuación
-5. **Compite en el ranking** con otros jugadores
-
-## 📈 Estadísticas Disponibles
-
-- Promedio de puntajes y porcentajes de acierto
-- Mejor puntaje y mejor porcentaje histórico
-- Tiempos promedio y mejor tiempo
-- Número total de partidas jugadas
-- Historial completo de respuestas
-
-## 🤝 Contribuciones
-
-¡Las contribuciones son bienvenidas! Puedes:
-- Agregar nuevas preguntas al archivo CSV
-- Implementar nuevos tipos de objetos especiales
-- Crear minijuegos adicionales
-- Mejorar la interfaz de usuario
-- Optimizar algoritmos existentes
-
-## 📋 Próximas Características
-
-- [ ] Modo multijugador
-- [ ] Categorías de preguntas personalizables
-- [ ] Sistema de logros
-- [ ] Exportación de estadísticas
-- [ ] Interfaz gráfica
-
-## 📄 Licencia
-
-[Especifica tu licencia aquí]
-
-## 👨‍💻 Autor
-
-[Tu nombre/usuario de GitHub]
-
----
-
-*¡Que la sabiduría de la Esfinge te acompañe en tu aventura!* 🦅
+* Questions are loaded from the `preguntas.csv` file.
+* Player data is saved automatically in `Usuarios.json`.
+* Special items are only unlocked by scoring **8 or more correct answers** in a 10-question game.
+* The *Stone Guardians* minigame generates solvable matrices with guaranteed paths and restart options.
+* The project uses no external libraries — all logic is implemented with pure Python.
