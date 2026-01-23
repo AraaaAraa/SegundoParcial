@@ -17,7 +17,7 @@ import os
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 RUTA_USUARIOS = os.path.join(BASE_DIR, "assets", "Usuarios.json")
-RUTA_PREGUNTAS = os.path.join(BASE_DIR, "assets", "Preguntas.csv")
+RUTA_PREGUNTAS = os.path.join(BASE_DIR, "assets", "preguntas.csv")
 RUTA_ESTADO_BUFF = os.path.join(BASE_DIR, "assets", "EstadoBuff.json")
 
 # =============================================================================
