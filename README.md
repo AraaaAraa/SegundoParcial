@@ -1,147 +1,238 @@
 **-ESPAÑOL-**
 
-📜 **Juego de Trivia Mitológica**
+# 📜 Juego de Trivia Mitológica
+
 Este proyecto simula un juego de trivia interactivo con temáticas de mitología griega, egipcia y hebrea. Incluye un sistema de buffs, objetos especiales, minijuegos y estadísticas avanzadas para los jugadores.
 
-🛠️ **Tecnologías Utilizadas**
+**🎯 ARQUITECTURA REORGANIZADA PARA PYGAME**: El código ha sido completamente reorganizado separando la lógica de negocio de la interfaz de usuario, facilitando la migración a Pygame. Ver [ARQUITECTURA.md](ARQUITECTURA.md) para detalles.
 
-* Python 3
-* Estructuras de datos básicas (listas, bucles, condicionales)
-* Programación modular
-* Uso de archivos CSV y JSON para persistencia
-* Algoritmos personalizados (ordenamiento, recorridos en matriz)
-* Separación en módulos (import, organización en archivos `.py`)
+## 🛠️ Tecnologías Utilizadas
 
-📁 **Estructura de Carpetas**
+* Python 3.10+
+* Arquitectura modular con separación de responsabilidades
+* Estructuras de datos básicas (sin librerías externas)
+* Algoritmos personalizados (ordenamiento, búsqueda, recorridos)
+* Persistencia con archivos CSV y JSON
+* Programación funcional
+* Type hints para mejor documentación
+
+## 📁 Estructura de Carpetas (Nueva Arquitectura)
 
 ```
-├── Main.py                    # Menú principal del programa (interfaz de usuario)
-├── buffeos.py                 # Sistema de objetos especiales y buffs
-├── generales.py               # Funciones utilitarias generales
-├── manejo_de_usuario.py       # Gestión de usuarios y estadísticas
-├── Minijuego.py               # Minijuego "Guardianes de Piedra"
-├── preguntas.py               # Manejo y carga de preguntas desde CSV
-├── prints_de_juego.py         # Visualización e interfaces gráficas por consola
-├── procesos_recopilatorios.py # Lógica principal de partidas
-├── puntaje.py                 # Sistema de puntuación y rachas
-├── validaciones_y_prints.py   # Validaciones y procesamiento de respuestas
-├── verificacion_archivos.py   # Gestión de archivos JSON y CSV
-├── preguntas.csv              # Base de datos de preguntas
-├── Usuarios.json              # Registro de estadísticas por jugador
-└── EstadoBuff.json            # Estado de objetos especiales por usuario
+SegundoParcial/
+├── core/                          # Lógica de negocio (sin UI)
+│   ├── logica_juego.py           # Orquestación del flujo del juego
+│   ├── logica_buffeos.py         # Sistema de buffeos y objetos
+│   ├── logica_preguntas.py       # Evaluación de preguntas
+│   ├── logica_puntaje.py         # Cálculo de puntajes
+│   └── logica_minijuego.py       # Lógica del minijuego
+│
+├── models/                        # Modelos de datos
+│   ├── pregunta.py               # Estructura de preguntas
+│   ├── usuario.py                # Estructura de usuarios
+│   ├── partida.py                # Estado de partidas
+│   └── objeto_buff.py            # Objetos especiales
+│
+├── data/                          # Capa de persistencia
+│   ├── archivos_json.py          # Operaciones JSON
+│   ├── repositorio_usuarios.py   # CRUD de usuarios
+│   └── repositorio_preguntas.py  # Carga de preguntas
+│
+├── ui/                            # Interfaces de usuario
+│   ├── interfaces.py             # Interfaces abstractas
+│   └── consola/                  # Implementación consola
+│       ├── menu_consola.py
+│       ├── juego_consola.py
+│       └── minijuego_consola.py
+│
+├── utils/                         # Utilidades
+│   ├── validaciones.py
+│   ├── algoritmos.py
+│   └── formateadores.py
+│
+├── config/                        # Configuraciones
+│   ├── constantes.py
+│   └── mensajes.py
+│
+├── assets/                        # Archivos de datos
+│   ├── preguntas.csv
+│   ├── Usuarios.json
+│   └── EstadoBuff.json
+│
+├── Main.py                        # Punto de entrada
+├── ARQUITECTURA.md                # Documentación de arquitectura
+└── README.md                      # Este archivo
 ```
 
-📌 **Ejercicios Desarrollados**
+## 📌 Características Principales
 
-* Registro de usuarios y control de intentos por partida
-* Sistema de trivia con 3 niveles de dificultad
-* Bonificaciones por racha de respuestas correctas
-* Desbloqueo de objetos especiales (espada, armadura, raciones, bolsa de monedas)
-* Submenú con estadísticas detalladas del jugador
-* Minijuego con lógica recursiva: Guardianes de Piedra
-* Rankings globales y almacenamiento de partidas
-* Validación de respuestas, puntuación y reintentos estratégicos
+* ✅ **Separación UI/Lógica**: La lógica del juego está completamente independiente de la interfaz
+* ✅ **Sistema de trivia** con 3 niveles de dificultad (10 preguntas por partida)
+* ✅ **Bonificaciones por racha** de respuestas correctas
+* ✅ **Objetos especiales**: Espada, Armadura, Raciones, Bolsa de Monedas
+* ✅ **Estadísticas detalladas** por jugador
+* ✅ **Ranking global** de mejores puntajes
+* ✅ **Minijuego "Guardianes de Piedra"** con lógica recursiva
+* ✅ **Comentarios descriptivos** en todas las funciones
+* ✅ **Preparado para Pygame**: Fácil migración a interfaz gráfica
 
-🧠 **Habilidades Desarrolladas**
+## 🧠 Principios de Programación Aplicados
 
-* Pensamiento lógico y estructuras de control avanzadas
-* Modularización de código y separación de responsabilidades
-* Manipulación de archivos `.json` y `.csv`
-* Algoritmos de recorrido en matrices y ordenamiento personalizado
-* Validación exhaustiva de entrada del usuario
-* Persistencia de datos y análisis estadístico
-* Diseño de minijuegos con restricciones lógicas (valores crecientes en matriz)
+* **Modularización**: Código organizado por responsabilidades
+* **Separación de capas**: Core, Models, Data, UI, Utils, Config
+* **Algoritmos manuales**: Implementación sin usar built-ins (sum, max, min, etc.)
+* **Un solo return** por función
+* **Validación exhaustiva** de entradas
+* **Persistencia de datos** en JSON/CSV
+* **Documentación completa** de cada función
 
-▶️ **¿Cómo Ejecutarlo?**
+## ▶️ ¿Cómo Ejecutarlo?
 
 1. Asegurate de tener **Python 3.10 o superior** instalado.
-2. Descargá todos los archivos `.py`, `.csv` y `.json` en la misma carpeta.
-3. Abrí una terminal o consola en esa carpeta.
-4. Ejecutá el programa principal con:
+2. Cloná o descargá el repositorio completo.
+3. Abrí una terminal en la carpeta del proyecto.
+4. Ejecutá el programa principal:
 
    ```bash
    python Main.py
    ```
-5. Seguí las instrucciones del menú para jugar, consultar estadísticas, revisar el ranking o acceder al minijuego.
 
-💡 **Notas**
+5. Seguí las instrucciones del menú:
+   - **Opción 1**: Juego principal
+   - **Opción 2**: Ver estadísticas personales
+   - **Opción 3**: Ver ranking global
+   - **Opción 4**: Mini juego "Guardianes de Piedra"
+   - **Opción 5**: Salir
 
-* Las preguntas se leen desde el archivo `preguntas.csv`.
-* Las estadísticas se guardan automáticamente en `Usuarios.json`.
-* Solo se desbloquean objetos si se logran **8 o más aciertos** en una partida de 10 preguntas.
-* El minijuego **Guardianes de Piedra** genera matrices con solución garantizada y permite reinicios.
-* El programa no utiliza librerías externas (todo está implementado con Python puro).
+## 🎮 Reglas del Juego
+
+### Juego Principal
+- Se presentan 10 preguntas divididas en 3 niveles
+- Cada nivel tiene distinta cantidad de preguntas (5, 3, 2)
+- Puntos según dificultad: 1, 2 o 3 puntos
+- **Sistema de rachas**: Puntos extra por respuestas correctas consecutivas
+  - Racha > 3: +1 punto
+  - Racha > 5: +3 puntos
+  - Racha > 7: +5 puntos
+- **Objetos especiales** (se desbloquean con 8+ aciertos en 10 preguntas):
+  - **Espada**: +2 puntos por respuesta correcta + 1 reintento
+  - **Armadura**: Protección automática contra 1 error
+  - **Raciones**: Recupera 3 puntos al fallar
+  - **Bolsa de Monedas**: Duplica puntos de última respuesta correcta
+- Fin de partida: 2 errores o completar todos los niveles
+
+### Minijuego "Guardianes de Piedra"
+- Matriz 5x5 con valores aleatorios
+- Objetivo: Llegar de (0,0) a (4,4)
+- Regla: Solo moverte a casillas con valores MAYORES
+- Genera matriz con solución garantizada
+- Opciones: Reiniciar o salir en cualquier momento
+
+## 💡 Migración a Pygame
+
+El código está **completamente preparado** para migrar a Pygame:
+
+1. **Mantener sin cambios**: `core/`, `models/`, `data/`, `utils/`, `config/`
+2. **Crear nueva UI**: Implementar `ui/pygame_ui/` con interfaz gráfica
+3. **Actualizar Main.py**: Cambiar `ejecutar_menu_consola()` por `ejecutar_menu_pygame()`
+
+**La lógica del juego NO necesita modificarse**. Solo se reemplaza la capa de presentación.
+
+Ver [ARQUITECTURA.md](ARQUITECTURA.md) para detalles completos de migración.
+
+## 📚 Documentación Adicional
+
+- [ARQUITECTURA.md](ARQUITECTURA.md): Documentación completa de la arquitectura
+- Cada archivo incluye comentarios descriptivos según especificación
+- Cada función tiene bloque de comentarios con:
+  - Descripción
+  - Uso en Pygame
+  - Parámetros
+  - Retorno
+  - Ejemplo de uso
+
+## 🏆 Características Técnicas Destacadas
+
+- ✅ Sin librerías externas (Python puro)
+- ✅ Algoritmos implementados manualmente
+- ✅ Type hints para mejor documentación
+- ✅ Código modular y reutilizable
+- ✅ Separación completa UI/Lógica
+- ✅ Arquitectura escalable
+- ✅ Preparado para testing
+
+---
 
 **-ENGLISH-**
 
-📜 **Mythological Trivia Game**
+# 📜 Mythological Trivia Game
+
 This project simulates an interactive trivia game focused on Greek, Egyptian, and Hebrew mythology. It includes a buff system, unlockable special items, minigames, and detailed player statistics.
 
-🛠️ **Technologies Used**
+**🎯 REORGANIZED ARCHITECTURE FOR PYGAME**: The code has been completely reorganized to separate business logic from the user interface, facilitating migration to Pygame. See [ARQUITECTURA.md](ARQUITECTURA.md) for details.
 
-* Python 3
-* Basic data structures (lists, loops, conditionals)
-* Modular programming
-* CSV and JSON file handling
-* Custom algorithms (sorting, matrix traversal)
-* Separation into modules (`import`, organized `.py` files)
+## 🛠️ Technologies Used
 
-📁 **Folder Structure**
+* Python 3.10+
+* Modular architecture with separation of concerns
+* Basic data structures (no external libraries)
+* Custom algorithms (sorting, searching, traversal)
+* CSV and JSON file persistence
+* Functional programming
+* Type hints for better documentation
 
-```
-├── Main.py                    # Main menu (user interface)
-├── buffeos.py                 # Special item and buff system
-├── generales.py               # General utility functions
-├── manejo_de_usuario.py       # User management and statistics
-├── Minijuego.py               # "Stone Guardians" minigame
-├── preguntas.py               # Loading and handling trivia questions
-├── prints_de_juego.py         # Display and interface functions
-├── procesos_recopilatorios.py # Main game logic
-├── puntaje.py                 # Scoring and streak system
-├── validaciones_y_prints.py   # Input validation and response processing
-├── verificacion_archivos.py   # JSON and CSV file handling
-├── preguntas.csv              # Question database
-├── Usuarios.json              # Player statistics
-└── EstadoBuff.json            # User-specific special item tracking
-```
+## 📁 New Folder Structure
 
-📌 **Implemented Features**
+See Spanish section above for complete structure. Key directories:
+- **core/**: Business logic (no UI dependencies)
+- **models/**: Data structures
+- **data/**: Persistence layer
+- **ui/consola/**: Console interface implementation
+- **utils/**: Reusable utilities
+- **config/**: Game configuration
+- **assets/**: Data files
 
-* User registration and session tracking
-* Trivia gameplay with 3 levels of difficulty
-* Bonus points for consecutive correct answers
-* Unlockable items (sword, armor, rations, coin bag)
-* Statistics submenu showing personal performance
-* Recursive logic minigame: *Stone Guardians*
-* Global ranking system and persistent session data
-* Validation of user input, scoring, and retry logic
+## 📌 Main Features
 
-🧠 **Skills Developed**
+* ✅ **UI/Logic Separation**: Game logic completely independent from interface
+* ✅ **Trivia system** with 3 difficulty levels (10 questions per game)
+* ✅ **Streak bonuses** for consecutive correct answers
+* ✅ **Special items**: Sword, Armor, Rations, Coin Bag
+* ✅ **Detailed statistics** per player
+* ✅ **Global ranking** of top scores
+* ✅ **"Stone Guardians" minigame** with recursive logic
+* ✅ **Descriptive comments** on all functions
+* ✅ **Pygame-ready**: Easy migration to graphical interface
 
-* Logical thinking and advanced control structures
-* Modularized code and file responsibility separation
-* Manipulation of `.json` and `.csv` files
-* Custom matrix traversal and sorting algorithms
-* Strict user input validation
-* Data persistence and statistical analysis
-* Minigame design with logical constraints (only move to higher values)
-
-▶️ **How to Run It**
+## ▶️ How to Run
 
 1. Make sure you have **Python 3.10 or higher** installed.
-2. Download all `.py`, `.csv`, and `.json` files into the same folder.
-3. Open a terminal or command prompt in that folder.
-4. Run the main script with:
+2. Clone or download the complete repository.
+3. Open a terminal in the project folder.
+4. Run:
 
    ```bash
    python Main.py
    ```
-5. Follow the on-screen instructions to start the game, view statistics, check rankings, or access the minigame.
 
-💡 **Notes**
+5. Follow the menu to play, view stats, or access the minigame.
 
-* Questions are loaded from the `preguntas.csv` file.
-* Player data is saved automatically in `Usuarios.json`.
-* Special items are only unlocked by scoring **8 or more correct answers** in a 10-question game.
-* The *Stone Guardians* minigame generates solvable matrices with guaranteed paths and restart options.
-* The project uses no external libraries — all logic is implemented with pure Python.
+## 💡 Pygame Migration
+
+The code is **completely ready** for Pygame migration:
+
+1. **Keep unchanged**: `core/`, `models/`, `data/`, `utils/`, `config/`
+2. **Create new UI**: Implement `ui/pygame_ui/` with graphical interface
+3. **Update Main.py**: Change `ejecutar_menu_consola()` to `ejecutar_menu_pygame()`
+
+See [ARQUITECTURA.md](ARQUITECTURA.md) for complete details.
+
+## 🏆 Technical Highlights
+
+- ✅ No external libraries (pure Python)
+- ✅ Manually implemented algorithms
+- ✅ Type hints for better documentation
+- ✅ Modular and reusable code
+- ✅ Complete UI/Logic separation
+- ✅ Scalable architecture
+- ✅ Test-ready
