@@ -17,11 +17,11 @@ class juego(object):
     def flip_esta (self):
         estado_actual = self.nombre_estado
         sig_estado = self.estado.sig_estado
-        self.estado.listo = sig_estado
+        self.estado.done = True
         self.nombre_estado = sig_estado
-        persit = self.estado.persi
+        persist = self.estado.persist
         self.estado = self.estados[self.nombre_estado]
-        self.estado.startup(persit)
+        self.estado.startup(persist)
 
     def update(self, dt):
         if self.estado.quit:

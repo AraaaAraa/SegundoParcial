@@ -22,5 +22,5 @@ estados = {
 Juego = juego(pantalla, estados, "Splash", FPS)
 Juego.run()
 
-pygame.quit
-sys.exit
+pygame.quit()
+sys.exit()
