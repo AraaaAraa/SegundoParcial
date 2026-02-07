@@ -60,6 +60,9 @@ class gameplay(BaseEstado):
         self.errores = 0
         self.nombre_usuario = "Jugador"
         
+        # Constante para conversión de índice a letra
+        self.ASCII_A = 65
+        
         # Estado de respuesta
         self.opcion_seleccionada = -1
         self.esperando_respuesta = False
@@ -143,7 +146,7 @@ class gameplay(BaseEstado):
         y_start = 300
         for i, opcion in enumerate(opciones):
             boton = Boton(
-                f"{chr(65 + i)}. {opcion}",
+                f"{chr(self.ASCII_A + i)}. {opcion}",
                 100,
                 y_start + (i * 60),
                 600,
@@ -168,7 +171,7 @@ class gameplay(BaseEstado):
             return
         
         # Convertir índice a letra (A, B, C, D)
-        letra_respuesta = chr(65 + indice_opcion)
+        letra_respuesta = chr(self.ASCII_A + indice_opcion)
         
         # Procesar con la lógica del core
         self.resultado_actual = procesar_pregunta_completa(

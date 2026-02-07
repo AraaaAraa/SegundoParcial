@@ -46,7 +46,7 @@ class minijuego(BaseEstado):
         # Estado del juego
         self.estado_juego = None
         self.movimientos_validos = []
-        self.tamaño_celda = 80
+        self.tamano_celda = 80
         self.margen = 5
     
     def startup(self, persist: dict):
@@ -118,11 +118,11 @@ class minijuego(BaseEstado):
         elif event.type == pygame.MOUSEBUTTONDOWN and not self.estado_juego["terminado"]:
             pos = pygame.mouse.get_pos()
             # Calcular qué celda se clickeó
-            offset_x = (self.screen_rect.width - (self.estado_juego["tamano"] * (self.tamaño_celda + self.margen))) // 2
+            offset_x = (self.screen_rect.width - (self.estado_juego["tamano"] * (self.tamano_celda + self.margen))) // 2
             offset_y = 150
             
-            col = (pos[0] - offset_x) // (self.tamaño_celda + self.margen)
-            fila = (pos[1] - offset_y) // (self.tamaño_celda + self.margen)
+            col = (pos[0] - offset_x) // (self.tamano_celda + self.margen)
+            fila = (pos[1] - offset_y) // (self.tamano_celda + self.margen)
             
             if 0 <= fila < self.estado_juego["tamano"] and 0 <= col < self.estado_juego["tamano"]:
                 self.procesar_click_celda(fila, col)
@@ -176,13 +176,13 @@ class minijuego(BaseEstado):
         visitadas = self.estado_juego["camino_recorrido"]
         
         # Calcular offset para centrar la matriz
-        offset_x = (self.screen_rect.width - (tamano * (self.tamaño_celda + self.margen))) // 2
+        offset_x = (self.screen_rect.width - (tamano * (self.tamano_celda + self.margen))) // 2
         offset_y = 150
         
         for fila in range(tamano):
             for col in range(tamano):
-                x = offset_x + col * (self.tamaño_celda + self.margen)
-                y = offset_y + fila * (self.tamaño_celda + self.margen)
+                x = offset_x + col * (self.tamano_celda + self.margen)
+                y = offset_y + fila * (self.tamano_celda + self.margen)
                 
                 # Determinar color de la celda
                 if (fila, col) == jugador_pos:
@@ -202,7 +202,7 @@ class minijuego(BaseEstado):
                     color = self.color_celda_movimiento if es_movimiento_valido else self.color_celda
                 
                 # Dibujar celda
-                rect = pygame.Rect(x, y, self.tamaño_celda, self.tamaño_celda)
+                rect = pygame.Rect(x, y, self.tamano_celda, self.tamano_celda)
                 pygame.draw.rect(surface, color, rect, 0, 5)
                 pygame.draw.rect(surface, (100, 100, 100), rect, 2, 5)
                 
@@ -210,7 +210,7 @@ class minijuego(BaseEstado):
                 valor = matriz[fila][col]
                 valor_text = str(valor)
                 valor_render = self.fuente_celda.render(valor_text, True, self.color_texto)
-                valor_rect = valor_render.get_rect(center=(x + self.tamaño_celda // 2, y + self.tamaño_celda // 2))
+                valor_rect = valor_render.get_rect(center=(x + self.tamano_celda // 2, y + self.tamano_celda // 2))
                 surface.blit(valor_render, valor_rect)
     
     def dibujar_resultado(self, surface: pygame.Surface):

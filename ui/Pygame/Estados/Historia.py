@@ -41,7 +41,7 @@ class historia(BaseEstado):
             "sobre mitología griega, romana y egipcia.",
             "",
             "Responde correctamente para acumular puntos",
-            "y activa rachas para obtener buffeos especiales.",
+            "y activa rachas para obtener buffs especiales.",
             "",
             "¡Cuidado! Solo tienes 2 errores permitidos.",
             "",
